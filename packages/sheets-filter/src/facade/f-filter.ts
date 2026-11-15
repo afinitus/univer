@@ -87,7 +87,7 @@ export class FFilter {
      * ```
      */
     getFilteredOutRows(): number[] {
-        return Array.from(this._filterModel.filteredOutRows).sort();
+        return Array.from(this._filterModel.filteredOutRows).sort((a, b) => a - b);
     }
 
     /**

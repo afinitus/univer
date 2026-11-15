@@ -77,7 +77,7 @@ export class FilterModel extends Disposable {
         };
 
         if (this._alreadyFilteredOutRows) {
-            result.cachedFilteredOut = Array.from(this._alreadyFilteredOutRows).sort();
+            result.cachedFilteredOut = Array.from(this._alreadyFilteredOutRows).sort((a, b) => a - b);
         }
 
         return result;
