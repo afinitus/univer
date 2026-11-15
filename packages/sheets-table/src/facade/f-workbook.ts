@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import type { Workbook } from '@univerjs/core';
 import type {
     IAddSheetTableCommandParams,
     IDeleteSheetTableParams,
@@ -25,11 +24,7 @@ import type {
     ITableOptions,
     ITableRange,
 } from '@univerjs/sheets-table';
-import {
-    customNameCharacterCheck,
-    IUniverInstanceService,
-    UniverInstanceType,
-} from '@univerjs/core';
+import { customNameCharacterCheck } from '@univerjs/core';
 import {
     AddSheetTableCommand,
     DeleteSheetTableCommand,
@@ -228,14 +223,10 @@ export class FWorkbookSheetsTableMixin extends FWorkbook implements IFWorkbookSh
     ): Promise<string | undefined> {
         const sheetTableService = this._injector.get(SheetTableService);
 
-        const univerInstanceService = this._injector.get(IUniverInstanceService);
-        const workbook = univerInstanceService.getCurrentUnitOfType<Workbook>(UniverInstanceType.UNIVER_SHEET);
         const sheetNameSet = new Set<string>();
-        if (workbook) {
-            workbook.getSheets().forEach((sheet) => {
-                sheetNameSet.add(sheet.getName());
-            });
-        }
+        this._workbook.getSheets().forEach((sheet) => {
+            sheetNameSet.add(sheet.getName());
+        });
         const isValidName = customNameCharacterCheck(tableName, sheetNameSet);
         if (!isValidName) {
             return undefined;
