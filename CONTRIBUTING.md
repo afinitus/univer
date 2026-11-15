@@ -51,7 +51,7 @@ pnpm dev
 
 ### Architecture
 
-Please refer to [Architecture](https://docs.univer.ai/guides/recipes/architecture/univer), and also [ISOMORPHIC.md](./docs/ISOMORPHIC.md) for more guidance on how to set up plugins.
+Please refer to [Architecture](https://docs.univer.ai/blog/univer), and also [ISOMORPHIC.md](./docs/ISOMORPHIC.md) for more guidance on how to set up plugins.
 
 For public API compatibility expectations, experimental APIs, internal APIs, and deprecation rules, read [API_STABILITY.md](./docs/API_STABILITY.md).
 
