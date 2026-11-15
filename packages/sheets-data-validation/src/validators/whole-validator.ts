@@ -115,7 +115,7 @@ export class WholeValidator extends BaseSheetValidator {
 
         return {
             success: formula1Success,
-            formula1: errorMsg,
+            formula1: formula1Success ? undefined : errorMsg,
         };
     }
 
